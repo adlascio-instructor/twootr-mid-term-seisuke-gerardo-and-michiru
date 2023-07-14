@@ -1,11 +1,17 @@
+import Header from "./components/Header"
+import UserProfile from "./components/UserProfile"
+import NewPost from "./components/NewPost"
+import PostList from "./components/PostList"
+import './App.css'
+
 function App() {
 
-  const authorSlug = "bar"
   return (
     <>
-    {/* delete there codes */}
-      <h1>Twootr</h1>
-      <img src={`https://avatars.dicebear.com/api/bottts/${authorSlug}.svg`} />
+      <Header />
+      <UserProfile />
+      <NewPost />
+      <PostList />
     </>
   )
 }
