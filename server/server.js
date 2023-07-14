@@ -48,6 +48,7 @@ app.post("/twoot", (req, res) => {
       const newTwoot = { ...req.body.newTwoot, _id: uuidv4() };
       twoots = [newTwoot, ...twoots];
       res.status(201).json(newTwoot);
+      console.log(twoots);
     }
   }
 });
