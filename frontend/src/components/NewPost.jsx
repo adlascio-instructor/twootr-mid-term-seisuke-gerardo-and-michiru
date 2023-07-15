@@ -36,6 +36,8 @@ export default function NewPost() {
   const [twootInput, setTwootInput] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
 
+  console.log("???");
+
   const handleOnchange = (e) => {
     const inputValue = e.target.value;
     setTwootInput(inputValue);
