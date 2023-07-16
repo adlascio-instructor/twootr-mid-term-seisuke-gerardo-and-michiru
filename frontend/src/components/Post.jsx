@@ -70,6 +70,10 @@ const PostDiv = styled.div`
       align-items: center;
       column-gap: 5px;
 
+      i {
+        cursor: pointer;
+      }
+      
       i.active {
         color: pink;
       }
