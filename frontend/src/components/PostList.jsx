@@ -1,7 +1,14 @@
 import React from 'react'
 import Post from './Post'
-
 import { useState, useEffect } from 'react';
+import styled from 'styled-components'
+
+const PostListDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+`
+
 export default function PostList() {
 
   const END_POINT = `http://localhost:8080/twoots`
@@ -12,7 +19,6 @@ export default function PostList() {
     const fetchData = async () => {
       const response = await fetch(END_POINT)
       const data = await response.json()
-      // console.log(data);
       setPosts(data)
       setLoading(false)
     }
@@ -23,11 +29,11 @@ export default function PostList() {
   return (
     <>
       { isLoading ? null : (
-        <div>
+        <PostListDiv>
           {posts.map((post) => {
             return <Post key={post._id} post={post} />
           })}
-        </div>
+        </PostListDiv>
       )}
     </>
   )
