@@ -1,18 +1,20 @@
 import React from 'react'
 
 export default function Post(props) {
-  const { post } = props.post
+  const { post } = props
+
   return (
     <div className='post'>
       <div className='post-user'>
-        <img src={`https://avatars.dicebear.com/api/bottts/aaa.svg`}/>
+        <img className='post-user-icon' src={`https://avatars.dicebear.com/api/bottts/${post.authorSlug}.svg`}/>
+        <span className='post-username'>{post.author}</span>
       </div>
       <div className='post-content'>
-        This is sample text
+        {post.content}
       </div>
       <div className='post-info'>
         <div className='post-date'>
-          Twooted 22 days ago
+        {post.dateAdded}
         </div>
         <div className='post-reaction'>
           Reaction Icons
