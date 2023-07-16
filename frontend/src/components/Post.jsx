@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const PostDiv = styled.div`
@@ -69,12 +69,22 @@ const PostDiv = styled.div`
       justify-content: center;
       align-items: center;
       column-gap: 5px;
+
+      i.active {
+        color: pink;
+      }
     }
   }
 `
 
 export default function Post(props) {
   const { post } = props
+
+  const [isReportActive, setReportActive] = useState(false)
+
+  const iconClicked = function(event) {
+    setReportActive(!isReportActive)
+  }
 
   return (
     <PostDiv className='post'>
@@ -99,9 +109,9 @@ export default function Post(props) {
         {post.dateAdded}
         </div>
         <div className='reaction'>
-          <i class="fa-solid fa-flag"></i>
+          <i className={`fa-solid fa-flag ${isReportActive ? "active" : ""}`} onClick={iconClicked}></i>
           <i className="fa-solid fa-retweet"></i>
-          <i class="fa-solid fa-heart"></i>
+          <i className="fa-solid fa-heart"></i>
         </div>
       </div>
     </PostDiv>
