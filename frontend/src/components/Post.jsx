@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function Post(props) {
   const { post } = props.post
-  console.log(post);
   return (
     <div className='post'>
       <div className='post-user'>
