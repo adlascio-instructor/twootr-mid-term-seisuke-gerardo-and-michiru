@@ -17,11 +17,7 @@ const PostDiv = styled.div`
 
   * {
     box-sizing: border-box;
-  }
-
-  i {
-    font-size: 18px;
-    color: black;
+    color: #888888;
   }
 
   .user {
