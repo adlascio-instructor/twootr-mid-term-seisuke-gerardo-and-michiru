@@ -46,10 +46,15 @@ const PostDiv = styled.div`
     text-align: left;
   }
 
+  hr {
+    width: 100%;
+    border: 1px solid black;
+  }
+
   .info {
     width: 100%;
     padding-inline: 10px;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -77,9 +82,13 @@ export default function Post(props) {
           @{post.authorSlug}
         </div>
       </div>
+
       <div className='content'>
         {post.content}
       </div>
+
+      <hr/>
+
       <div className='info'>
         <div className='date'>
         {post.dateAdded}
