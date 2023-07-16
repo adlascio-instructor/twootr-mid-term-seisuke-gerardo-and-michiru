@@ -21,10 +21,14 @@ export default function PostList() {
   }, [])
   
   return (
-    <div>
+    <>
       { isLoading ? null : (
-        <Post post={posts[0]} />
+        <div>
+          {posts.map((post) => {
+            return <Post key={post._id} post={post} />
+          })}
+        </div>
       )}
-    </div>
+    </>
   )
 }
