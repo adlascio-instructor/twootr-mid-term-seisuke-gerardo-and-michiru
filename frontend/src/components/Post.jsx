@@ -81,9 +81,19 @@ export default function Post(props) {
   const { post } = props
 
   const [isReportActive, setReportActive] = useState(false)
+  const [isRetwootActive, setRetwootActive] = useState(false)
+  const [isLikeActive, setLikeActive] = useState(false)
 
-  const iconClicked = function(event) {
+  const reportIconClicked = function(event) {
     setReportActive(!isReportActive)
+  }
+
+  const retwootIconClicked = function(event) {
+    setRetwootActive(!isRetwootActive)
+  }
+
+  const likeIconClicked = function(event) {
+    setLikeActive(!isLikeActive)
   }
 
   return (
@@ -109,9 +119,9 @@ export default function Post(props) {
         {post.dateAdded}
         </div>
         <div className='reaction'>
-          <i className={`fa-solid fa-flag ${isReportActive ? "active" : ""}`} onClick={iconClicked}></i>
-          <i className="fa-solid fa-retweet"></i>
-          <i className="fa-solid fa-heart"></i>
+          <i className={`fa-solid fa-flag ${isReportActive ? "active" : ""}`} onClick={reportIconClicked}></i>
+          <i className={`fa-solid fa-retweet ${isRetwootActive ? "active" : ""}`} onClick={retwootIconClicked}></i>
+          <i className={`fa-solid fa-heart ${isLikeActive ? "active" : ""}`} onClick={likeIconClicked}></i>
         </div>
       </div>
     </PostDiv>
