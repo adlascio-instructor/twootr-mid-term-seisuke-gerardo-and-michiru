@@ -19,6 +19,11 @@ const PostDiv = styled.div`
     box-sizing: border-box;
   }
 
+  i {
+    font-size: 18px;
+    color: black;
+  }
+
   .user {
     width: 100%;
     display: flex;
@@ -58,12 +63,16 @@ const PostDiv = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .post-date {
+
+    .date {
 
     }
 
-    .post-reaction {
-    
+    .reaction {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 5px;
     }
   }
 `
@@ -94,7 +103,9 @@ export default function Post(props) {
         {post.dateAdded}
         </div>
         <div className='reaction'>
-          Reaction Icons
+          <i class="fa-solid fa-flag"></i>
+          <i className="fa-solid fa-retweet"></i>
+          <i class="fa-solid fa-heart"></i>
         </div>
       </div>
     </PostDiv>
