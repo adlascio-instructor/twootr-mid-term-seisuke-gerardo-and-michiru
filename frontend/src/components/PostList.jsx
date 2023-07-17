@@ -1,5 +1,6 @@
 import React from 'react'
 import Post from './Post'
+import Loader from './Loader'
 import { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import { axiosInstance } from "../axios";
@@ -19,7 +20,9 @@ export default function PostList() {
     const fetchData = async () => {
       const response = await axiosInstance.get("/twoots")
       setPosts(response.data)
-      setLoading(false)
+      setTimeout(() => {
+        setLoading(false)
+      }, 1500)
     }
 
     fetchData()    
@@ -27,7 +30,7 @@ export default function PostList() {
   
   return (
     <>
-      { isLoading ? null : (
+      { isLoading ? <Loader/> : (
         <PostListDiv>
           {posts.map((post) => {
             return <Post key={post._id} post={post} />
