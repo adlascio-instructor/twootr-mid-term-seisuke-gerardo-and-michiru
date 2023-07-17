@@ -1,4 +1,5 @@
 import PostUser from './PostUser'
+import PostContent from './PostContent'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
@@ -19,12 +20,6 @@ const PostDiv = styled.div`
   * {
     box-sizing: border-box;
     color: #888888;
-  }
-
-  .content {
-    width: 100%;
-    padding-inline: 10px;
-    text-align: left;
   }
 
   hr {
@@ -83,11 +78,7 @@ export default function Post(props) {
   return (
     <PostDiv className='post'>
       <PostUser author={post.author} authorSlug={post.authorSlug} />
-
-      <div className='content'>
-        {post.content}
-      </div>
-
+      <PostContent content={post.content} />
       <hr/>
 
       <div className='info'>
