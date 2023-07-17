@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import PostUser from './PostUser'
+import PostContent from './PostContent'
+import PostInfo from './PostInfo'
 import styled from 'styled-components'
 
 const PostDiv = styled.div`
@@ -20,114 +22,22 @@ const PostDiv = styled.div`
     color: #888888;
   }
 
-  .user {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .user-basic-info {
-      display: flex;
-      align-items: center;
-      column-gap: 5px;
-      .user-icon {
-        width: 50px;
-        height: auto;
-      }
-  
-      .user-name {
-        
-      }
-    }
-  }
-
-  .content {
-    width: 100%;
-    padding-inline: 10px;
-    text-align: left;
-  }
-
   hr {
     width: 100%;
     border: 1px solid black;
   }
 
-  .info {
-    width: 100%;
-    padding-inline: 10px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .date {
-
-    }
-
-    .reaction {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      column-gap: 5px;
-
-      i {
-        cursor: pointer;
-      }
-      
-      i.active {
-        color: pink;
-      }
-    }
-  }
 `
 
 export default function Post(props) {
   const { post } = props
 
-  const [isReportActive, setReportActive] = useState(false)
-  const [isRetwootActive, setRetwootActive] = useState(false)
-  const [isLikeActive, setLikeActive] = useState(false)
-
-  const reportIconClicked = function(event) {
-    setReportActive(!isReportActive)
-  }
-
-  const retwootIconClicked = function(event) {
-    setRetwootActive(!isRetwootActive)
-  }
-
-  const likeIconClicked = function(event) {
-    setLikeActive(!isLikeActive)
-  }
-
   return (
-    <PostDiv className='post'>
-      <div className='user'>
-        <div className='user-basic-info'>
-          <img className='user-icon' src={`https://avatars.dicebear.com/api/bottts/${post.authorSlug}.svg`}/>
-          <span className='user-name'>{post.author}</span>
-        </div>
-        <div className='user-slug'>
-          @{post.authorSlug}
-        </div>
-      </div>
-
-      <div className='content'>
-        {post.content}
-      </div>
-
+    <PostDiv>
+      <PostUser author={post.author} authorSlug={post.authorSlug} />
+      <PostContent content={post.content} />
       <hr/>
-
-      <div className='info'>
-        <div className='date'>
-        {post.dateAdded}
-        </div>
-        <div className='reaction'>
-          <i className={`fa-solid fa-flag ${isReportActive ? "active" : ""}`} onClick={reportIconClicked}></i>
-          <i className={`fa-solid fa-retweet ${isRetwootActive ? "active" : ""}`} onClick={retwootIconClicked}></i>
-          <i className={`fa-solid fa-heart ${isLikeActive ? "active" : ""}`} onClick={likeIconClicked}></i>
-        </div>
-      </div>
+      <PostInfo dateAdded={post.dateAdded} />
     </PostDiv>
   )
 }
