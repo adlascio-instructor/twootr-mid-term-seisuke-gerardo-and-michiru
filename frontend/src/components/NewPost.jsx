@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TextCounter from "./TextCounter";
 import TwootButton from "./TwootButton";
-import { axiosInstance } from "../axios";
+// import { axiosInstance } from "../axios";
 import styled from "styled-components";
 import TextareaAutosize from "react-textarea-autosize";
 
@@ -32,11 +32,9 @@ const ControlsContainer = styled.div`
   gap: 10px;
 `;
 
-export default function NewPost() {
+export default function NewPost({ addNewPost }) {
   const [twootInput, setTwootInput] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
-
-  console.log("???");
 
   const handleOnchange = (e) => {
     const inputValue = e.target.value;
@@ -61,7 +59,8 @@ export default function NewPost() {
         dateAdded: date,
       },
     };
-    await axiosInstance.post("/twoot", newTwoot);
+    // await axiosInstance.post("/twoot", newTwoot);
+    await addNewPost(newTwoot);
     setTwootInput("");
     setIsDisabled(true);
   };

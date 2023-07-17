@@ -1,9 +1,8 @@
 import Header from "./components/Header";
 import UserProfile from "./components/UserProfile";
-import NewPost from "./components/NewPost";
-import PostList from "./components/PostList";
 import "./App.css";
 import { createGlobalStyle } from "styled-components";
+import PostPage from "./components/PostPage";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -18,8 +17,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <UserProfile />
-      <NewPost />
-      <PostList />
+      <PostPage />
     </>
   );
 }
