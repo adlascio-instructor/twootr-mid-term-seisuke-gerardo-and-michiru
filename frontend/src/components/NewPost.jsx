@@ -1,7 +1,6 @@
 import { useState } from "react";
 import TextCounter from "./TextCounter";
 import TwootButton from "./TwootButton";
-// import { axiosInstance } from "../axios";
 import styled from "styled-components";
 import TextareaAutosize from "react-textarea-autosize";
 
@@ -41,7 +40,7 @@ export default function NewPost({ addNewPost }) {
     setTwootInput(inputValue);
 
     //validation
-    if (inputValue.length >= 1 && inputValue.length < 140) {
+    if (inputValue.length >= 1 && inputValue.length <= 140) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
@@ -59,7 +58,6 @@ export default function NewPost({ addNewPost }) {
         dateAdded: date,
       },
     };
-    // await axiosInstance.post("/twoot", newTwoot);
     await addNewPost(newTwoot);
     setTwootInput("");
     setIsDisabled(true);

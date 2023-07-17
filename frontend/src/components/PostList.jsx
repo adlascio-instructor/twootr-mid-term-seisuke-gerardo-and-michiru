@@ -1,4 +1,3 @@
-// import React from "react";
 import Post from "./Post";
 import Loader from "./Loader";
 import styled from "styled-components";
