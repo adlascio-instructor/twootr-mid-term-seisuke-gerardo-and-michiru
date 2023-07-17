@@ -10,10 +10,6 @@ const PostInfoDiv = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  .date {
-
-  }
-
   .reaction {
   display: flex;
   justify-content: center;
@@ -31,20 +27,20 @@ const PostInfoDiv = styled.div`
 
 export default function PostInfo(props) {
 
-  const [isReportActive, setReportActive] = useState(false)
-  const [isRetwootActive, setRetwootActive] = useState(false)
-  const [isLikeActive, setLikeActive] = useState(false)
+  const [isReportActive, setIsReportActive] = useState(false)
+  const [isRetwootActive, setIsRetwootActive] = useState(false)
+  const [isLikeActive, setIsLikeActive] = useState(false)
 
-  const reportIconClicked = function(event) {
-    setReportActive(!isReportActive)
+  const reportIconClicked = function() {
+    setIsReportActive(!isReportActive)
   }
 
-  const retwootIconClicked = function(event) {
-    setRetwootActive(!isRetwootActive)
+  const retwootIconClicked = function() {
+    setIsRetwootActive(!isRetwootActive)
   }
 
-  const likeIconClicked = function(event) {
-    setLikeActive(!isLikeActive)
+  const likeIconClicked = function() {
+    setIsLikeActive(!isLikeActive)
   }
 
   return (
