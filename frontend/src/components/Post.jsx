@@ -1,3 +1,4 @@
+import PostUser from './PostUser'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
@@ -18,27 +19,6 @@ const PostDiv = styled.div`
   * {
     box-sizing: border-box;
     color: #888888;
-  }
-
-  .user {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .user-basic-info {
-      display: flex;
-      align-items: center;
-      column-gap: 5px;
-      .user-icon {
-        width: 50px;
-        height: auto;
-      }
-  
-      .user-name {
-        
-      }
-    }
   }
 
   .content {
@@ -73,7 +53,7 @@ const PostDiv = styled.div`
       i {
         cursor: pointer;
       }
-      
+
       i.active {
         color: pink;
       }
@@ -102,15 +82,7 @@ export default function Post(props) {
 
   return (
     <PostDiv className='post'>
-      <div className='user'>
-        <div className='user-basic-info'>
-          <img className='user-icon' src={`https://avatars.dicebear.com/api/bottts/${post.authorSlug}.svg`}/>
-          <span className='user-name'>{post.author}</span>
-        </div>
-        <div className='user-slug'>
-          @{post.authorSlug}
-        </div>
-      </div>
+      <PostUser author={post.author} authorSlug={post.authorSlug} />
 
       <div className='content'>
         {post.content}
