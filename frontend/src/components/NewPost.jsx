@@ -3,6 +3,7 @@ import TextCounter from "./TextCounter";
 import TwootButton from "./TwootButton";
 import styled from "styled-components";
 import TextareaAutosize from "react-textarea-autosize";
+import Header from "./Header";
 
 const StyledInput = styled(TextareaAutosize)`
   border: none;
