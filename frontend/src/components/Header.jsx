@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const HeaderBar = styled.div`
   background-color: #711a75;
   color: #fff;
@@ -33,13 +34,16 @@ const HeaderTwootBtn = styled.li`
   margin-left: 10px;
 `;
 
-export default function Header() {
+export default function Header({buttonRef}) {
+  const focusClick = () => {
+    buttonRef.current.focus();
+  }
 
   return (
     <HeaderBar>
       <Title>Twootr</Title>
       <HeaderLinks>
-        <HeaderTwootBtn>Write a new Twoot</HeaderTwootBtn>
+        <HeaderTwootBtn onClick={focusClick}>Write a new Twoot</HeaderTwootBtn>
       </HeaderLinks>
     </HeaderBar>
   )
