@@ -10,10 +10,11 @@ const HeaderBar = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  position: fixed;
-  top: 0;
+  /* position: fixed; */
+  /* top: 0;
   left: 0;
-  right: 0;
+  right: 0; */
+  width: 100.%;
   z-index: 999;
 `;
 

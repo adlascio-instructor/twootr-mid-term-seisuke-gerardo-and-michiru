@@ -15,12 +15,17 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-padding: 4rem;
+padding-top: 4rem;
+margin-left: 2rem;
 `
 const ProfileButton = {
   width: "1.5rem",
   height: "1.5rem",
 }
+
+const ProfileName = styled.h3`
+  margin-top: 1rem;
+  `
 
 export default function UserProfile() {
   const [newProfileData, setNewProfileData] = useState({
@@ -57,13 +62,13 @@ export default function UserProfile() {
   return (
     <ProfileDiv>
       <ProfileForm>
-          <img style={{height: "7rem",width: "7rem" }} src={`https://avatars.dicebear.com/api/bottts/${newProfile}.svg`} alt="" />
+          <img style={{height: "7rem",width: "7rem", marginRight: "2rem" }} src={`https://avatars.dicebear.com/api/bottts/${newProfile}.svg`} alt="" />
         <div>
           <input ref={firstNameRef} style={{width: "8rem"}}></input> <input ref={lastNameRef} style={{width: "8rem"}}></input>
           <button  onClick={handleSubmit} style={{background: "transparent", border: "none",}}><img style={ProfileButton} src='./check.png'></img> </button>
         </div>
-      <h3>{newProfile}</h3>
       </ProfileForm>
+      <ProfileName>{newProfile}</ProfileName>
     </ProfileDiv>
   )
 }
