@@ -21,17 +21,20 @@ margin-left: 2rem;
 const ProfileButton = {
   width: "1.5rem",
   height: "1.5rem",
+
 }
 
-const ProfileName = styled.h3`
+const ProfileName = styled.h2`
   margin-top: 1rem;
   `
 
 export default function UserProfile() {
   const [newProfileData, setNewProfileData] = useState({
-    firstName: "first",
-    lastName: "last",
+    firstName: "First Name",
+    lastName: "Last Name",
   });
+
+  const [renderProfile, setRenderProfile] = useState(false)
 
   const firstNameRef = useRef();
   const lastNameRef = useRef();
@@ -46,6 +49,12 @@ export default function UserProfile() {
     console.log("First name:", lastName);
     
     setNewProfileData({firstName: firstName, lastName: lastName})
+    setRenderProfile(true);
+  }
+
+  const handleEdit = (e) => {
+    e.preventDefault();
+    setRenderProfile(false)
   }
   const newProfile = `@${newProfileData.firstName}-${newProfileData.lastName}`
   // const [firstName, setFirstName] = useState("FirstName")
@@ -61,14 +70,23 @@ export default function UserProfile() {
 
   return (
     <ProfileDiv>
+      {renderProfile ?( <><img style={{height: "9rem",width: "9rem", marginTop: "2rem" }} src={`https://avatars.dicebear.com/api/bottts/${newProfile}.svg`} alt="" />
+      <ProfileName>{newProfile}</ProfileName><button  onClick={handleEdit} style={{background: "transparent", border: "none",}}><img style={ProfileButton} src='./edit.png'></img> </button>
+      </>
+      
+      
+      ) : ( 
+      <>
       <ProfileForm>
-          <img style={{height: "7rem",width: "7rem", marginRight: "2rem" }} src={`https://avatars.dicebear.com/api/bottts/${newProfile}.svg`} alt="" />
+          <img style={{height: "9rem",width: "9rem", marginRight: "2rem" }} src={`https://avatars.dicebear.com/api/bottts/${newProfile}.svg`} alt="" />
         <div>
-          <input ref={firstNameRef} style={{width: "8rem"}}></input> <input ref={lastNameRef} style={{width: "8rem"}}></input>
+        @ <input ref={firstNameRef} style={{width: "8rem", borderRadius: "5px"}}></input>-<input ref={lastNameRef} style={{width: "8rem", borderRadius: "5px"}}></input>
           <button  onClick={handleSubmit} style={{background: "transparent", border: "none",}}><img style={ProfileButton} src='./check.png'></img> </button>
         </div>
       </ProfileForm>
       <ProfileName>{newProfile}</ProfileName>
+      </>
+      )}
     </ProfileDiv>
   )
 }
