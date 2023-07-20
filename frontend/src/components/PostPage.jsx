@@ -3,7 +3,7 @@ import { axiosInstance } from "../axios";
 import NewPost from "./NewPost";
 import PostList from "./PostList";
 
-function PostPage() {
+function PostPage({buttonRef}) {
   const [posts, setPosts] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
@@ -26,7 +26,7 @@ function PostPage() {
 
   return (
     <>
-      <NewPost addNewPost={addNewPost} />
+      <NewPost buttonRef={buttonRef} addNewPost={addNewPost} />
       <PostList posts={posts} isLoading={isLoading} />
     </>
   );

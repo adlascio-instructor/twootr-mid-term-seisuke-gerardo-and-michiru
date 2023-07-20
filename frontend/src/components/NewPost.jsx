@@ -32,7 +32,7 @@ const ControlsContainer = styled.div`
   gap: 10px;
 `;
 
-export default function NewPost({ addNewPost }) {
+export default function NewPost({ addNewPost, buttonRef }) {
   const [twootInput, setTwootInput] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
 
@@ -74,6 +74,7 @@ export default function NewPost({ addNewPost }) {
         </ControlsContainer>
       </ComposeArea>
       <StyledInput
+        ref={buttonRef}
         type="text"
         value={twootInput}
         onChange={(e) => {

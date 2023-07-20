@@ -3,6 +3,7 @@ import UserProfile from "./components/UserProfile";
 import "./App.css";
 import { createGlobalStyle } from "styled-components";
 import PostPage from "./components/PostPage";
+import { useRef } from "react";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -12,12 +13,16 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 function App() {
+  const buttonRef = useRef()
+  const focusClick = () => {
+    buttonRef.current.focus();
+  }
   return (
     <>
       <GlobalStyle />
-      <Header />
+      <Header buttonRef={buttonRef}/>
       <UserProfile />
-      <PostPage />
+      <PostPage buttonRef={buttonRef} />
     </>
   );
 }
