@@ -1,9 +1,8 @@
-import { useState } from "react";
-import TextCounter from "./TextCounter";
-import TwootButton from "./TwootButton";
-import styled from "styled-components";
-import TextareaAutosize from "react-textarea-autosize";
-import Header from "./Header";
+import { useState } from 'react'
+import TextCounter from './TextCounter'
+import TwootButton from './TwootButton'
+import styled from 'styled-components'
+import TextareaAutosize from 'react-textarea-autosize'
 
 const StyledInput = styled(TextareaAutosize)`
   border: none;
@@ -11,12 +10,12 @@ const StyledInput = styled(TextareaAutosize)`
   background-color: inherit;
   width: 80%;
   resize: none;
-  font-family: "Kanit";
-`;
+  font-family: 'Kanit';
+`
 
 const StyledDiv = styled.div`
   margin: 10px 3rem;
-`;
+`
 
 const ComposeArea = styled.div`
   display: flex;
@@ -24,45 +23,51 @@ const ComposeArea = styled.div`
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
-`;
+`
 
 const ControlsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-`;
+`
 
-export default function NewPost({ addNewPost, buttonRef }) {
-  const [twootInput, setTwootInput] = useState("");
-  const [isDisabled, setIsDisabled] = useState(true);
+export default function NewPost({ addNewPost, buttonRef, profile }) {
+  const [twootInput, setTwootInput] = useState('')
+  const [isDisabled, setIsDisabled] = useState(true)
 
   const handleOnchange = (e) => {
-    const inputValue = e.target.value;
-    setTwootInput(inputValue);
+    const inputValue = e.target.value
+    setTwootInput(inputValue)
 
     //validation
-    if (inputValue.length >= 1 && inputValue.length <= 140) {
-      setIsDisabled(false);
+    if (
+      inputValue.length >= 1 &&
+      inputValue.length <= 140 &&
+      profile !== null
+    ) {
+      setIsDisabled(false)
     } else {
-      setIsDisabled(true);
+      setIsDisabled(true)
     }
-  };
+  }
 
   const handleOnclick = async () => {
     //get date and encode to yyyy-mm-dd
-    const date = new Date().toISOString().split("T")[0];
+    const date = new Date().toISOString().split('T')[0]
+    const author = profile.replace('-', ' ')
+    const authorSlug = profile.toLowerCase()
     const newTwoot = {
       newTwoot: {
-        author: "Henry David Thoreau", //get gerodo data
+        author,
         content: twootInput,
-        authorSlug: "henry-david-thoreau",
+        authorSlug,
         dateAdded: date,
       },
-    };
-    await addNewPost(newTwoot);
-    setTwootInput("");
-    setIsDisabled(true);
-  };
+    }
+    await addNewPost(newTwoot)
+    setTwootInput('')
+    setIsDisabled(true)
+  }
 
   return (
     <StyledDiv>
@@ -75,13 +80,13 @@ export default function NewPost({ addNewPost, buttonRef }) {
       </ComposeArea>
       <StyledInput
         ref={buttonRef}
-        type="text"
+        type='text'
         value={twootInput}
         onChange={(e) => {
-          handleOnchange(e);
+          handleOnchange(e)
         }}
-        placeholder="What are you humming about?"
+        placeholder='What are you humming about?'
       />
     </StyledDiv>
-  );
+  )
 }
