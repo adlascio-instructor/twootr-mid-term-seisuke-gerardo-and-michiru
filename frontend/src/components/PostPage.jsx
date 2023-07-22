@@ -1,35 +1,39 @@
-import { useState, useEffect } from "react";
-import { axiosInstance } from "../axios";
-import NewPost from "./NewPost";
-import PostList from "./PostList";
+import { useState, useEffect } from 'react'
+import { axiosInstance } from '../axios'
+import NewPost from './NewPost'
+import PostList from './PostList'
 
-function PostPage({buttonRef}) {
-  const [posts, setPosts] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+function PostPage({ buttonRef, profile }) {
+  const [posts, setPosts] = useState([])
+  const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axiosInstance.get("/twoots");
-      setPosts(response.data);
+      const response = await axiosInstance.get('/twoots')
+      setPosts(response.data)
       setTimeout(() => {
-        setLoading(false);
-      }, 1500);
-    };
+        setLoading(false)
+      }, 1500)
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   const addNewPost = async (newPost) => {
-    const response = await axiosInstance.post("/twoot", newPost);
-    setPosts((prevPosts) => [response.data, ...prevPosts]);
-  };
+    const response = await axiosInstance.post('/twoot', newPost)
+    setPosts((prevPosts) => [response.data, ...prevPosts])
+  }
 
   return (
     <>
-      <NewPost buttonRef={buttonRef} addNewPost={addNewPost} />
+      <NewPost
+        buttonRef={buttonRef}
+        addNewPost={addNewPost}
+        profile={profile}
+      />
       <PostList posts={posts} isLoading={isLoading} />
     </>
-  );
+  )
 }
 
-export default PostPage;
+export default PostPage
