@@ -2,6 +2,15 @@ import { useState, useEffect } from 'react'
 import { axiosInstance } from '../axios'
 import NewPost from './NewPost'
 import PostList from './PostList'
+import styled from 'styled-components'
+
+const StyledPostPage = styled.div`
+  width: 70%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 function PostPage({ buttonRef, profile }) {
   const [posts, setPosts] = useState([])
@@ -25,14 +34,14 @@ function PostPage({ buttonRef, profile }) {
   }
 
   return (
-    <>
+    <StyledPostPage>
       <NewPost
         buttonRef={buttonRef}
         addNewPost={addNewPost}
         profile={profile}
       />
       <PostList posts={posts} isLoading={isLoading} />
-    </>
+    </StyledPostPage>
   )
 }
 

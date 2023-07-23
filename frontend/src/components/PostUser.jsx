@@ -17,7 +17,7 @@ const PostUserDiv = styled.div`
     }
 
     .user-name {
-      
+      text-align: center;
     }
   }
 `

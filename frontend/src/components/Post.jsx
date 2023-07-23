@@ -4,7 +4,7 @@ import PostInfo from './PostInfo'
 import styled from 'styled-components'
 
 const PostDiv = styled.div`
-  width: 80%;
+  width: 100%;
   margin-inline: auto;
   padding: 10px 30px;
 
