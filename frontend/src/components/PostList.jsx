@@ -6,6 +6,7 @@ const PostListDiv = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+  width: 100%;
 `;
 
 export default function PostList({ posts, isLoading }) {

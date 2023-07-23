@@ -10,6 +10,7 @@ const ProfileDiv = styled.div`
   margin: 0;
   right: 0;
   left: 0;
+  text-align: center;
 `
 const ProfileForm = styled.div`
   display: flex;
@@ -26,6 +27,7 @@ const ProfileButton = {
 
 const ProfileName = styled.h2`
   margin-top: 1rem;
+  text-align: center;
 `
 
 export default function UserProfile({ setProfile }) {

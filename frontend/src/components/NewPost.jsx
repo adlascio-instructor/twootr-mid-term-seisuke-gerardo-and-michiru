@@ -8,18 +8,19 @@ const StyledInput = styled(TextareaAutosize)`
   border: none;
   border-bottom: 1px solid;
   background-color: inherit;
-  width: 80%;
   resize: none;
   font-family: 'Kanit';
+  margin: 0 auto;
+  width: 100%;
 `
 
 const StyledDiv = styled.div`
   margin: 10px 3rem;
+  width: 100%;
 `
 
 const ComposeArea = styled.div`
   display: flex;
-  width: 80%;
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
