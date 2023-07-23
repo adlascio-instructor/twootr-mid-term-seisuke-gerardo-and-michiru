@@ -14,8 +14,9 @@ const PostDiv = styled.div`
   align-items: center;
 
   border: 3px solid black;
-  box-shadow: 5px 5px 1px gray;
   font-family: 'Kanit', sans-serif;
+
+  transition: all 1s;
 
   * {
     box-sizing: border-box;
@@ -27,6 +28,11 @@ const PostDiv = styled.div`
     border: 1px solid black;
   }
 
+  &:hover {
+    translate: -3px -3px;
+    box-shadow: 5px 5px 1px gray;
+    transition: all .3s;
+  }
 `
 
 export default function Post(props) {
