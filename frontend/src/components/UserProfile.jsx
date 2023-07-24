@@ -11,6 +11,7 @@ const ProfileDiv = styled.div`
   right: 0;
   left: 0;
   text-align: center;
+  color: white;
 `
 const ProfileForm = styled.div`
   display: flex;
@@ -60,7 +61,7 @@ export default function UserProfile({ setProfile }) {
     e.preventDefault()
     setRenderProfile(false)
   }
-  const newProfile = `@${newProfileData.firstName}-${newProfileData.lastName}`
+  const newProfile = `${newProfileData.firstName} ${newProfileData.lastName}`
   // const [firstName, setFirstName] = useState("FirstName")
   // const [lastName, setLastName] = useState("LastName")
 
@@ -115,7 +116,7 @@ export default function UserProfile({ setProfile }) {
               </button>
             </div>
           </ProfileForm>
-          <ProfileName>{newProfile}</ProfileName>
+          <ProfileName>@{newProfile}</ProfileName>
         </>
       )}
     </ProfileDiv>
