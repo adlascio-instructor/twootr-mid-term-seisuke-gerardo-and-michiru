@@ -11,6 +11,7 @@ const ProfileDiv = styled.div`
   right: 0;
   left: 0;
   text-align: center;
+  color: white;
 `
 const ProfileForm = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const ProfileForm = styled.div`
   align-items: center;
   flex-direction: column;
   padding-top: 4rem;
-  margin-left: 2rem;
+  margin-left: 1rem;
 `
 const ProfileButton = {
   width: '1.5rem',
@@ -60,7 +61,8 @@ export default function UserProfile({ setProfile }) {
     e.preventDefault()
     setRenderProfile(false)
   }
-  const newProfile = `@${newProfileData.firstName}-${newProfileData.lastName}`
+  const newUser = `${newProfileData.firstName} ${newProfileData.lastName}`
+  const authorSlug = `${newProfileData.firstName}-${newProfileData.lastName}`.toLowerCase();
   // const [firstName, setFirstName] = useState("FirstName")
   // const [lastName, setLastName] = useState("LastName")
 
@@ -77,10 +79,10 @@ export default function UserProfile({ setProfile }) {
         <>
           <img
             style={{ height: '9rem', width: '9rem', marginTop: '2rem' }}
-            src={`https://avatars.dicebear.com/api/bottts/${newProfile}.svg`}
+            src={`https://avatars.dicebear.com/api/bottts/${authorSlug}.svg`}
             alt=''
           />
-          <ProfileName>{newProfile}</ProfileName>
+          <ProfileName>{newUser}</ProfileName>
           <button
             onClick={handleEdit}
             style={{ background: 'transparent', border: 'none' }}
@@ -93,7 +95,7 @@ export default function UserProfile({ setProfile }) {
           <ProfileForm>
             <img
               style={{ height: '9rem', width: '9rem', marginRight: '2rem' }}
-              src={`https://avatars.dicebear.com/api/bottts/${newProfile}.svg`}
+              src={`https://avatars.dicebear.com/api/bottts/${authorSlug}.svg`}
               alt=''
             />
             <div>
@@ -115,7 +117,7 @@ export default function UserProfile({ setProfile }) {
               </button>
             </div>
           </ProfileForm>
-          <ProfileName>{newProfile}</ProfileName>
+          <ProfileName>{newUser}</ProfileName>
         </>
       )}
     </ProfileDiv>
